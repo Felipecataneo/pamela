@@ -1,0 +1,61 @@
+{% extends 'imagesmain/index.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+
+        <h1 class="fw-light"><a href="{% url 'image-category' category.slug %}">{{category.nome}}</a></h1>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <table>
+        <tr>
+          <th><img class="img-fluid" src="{{image.imagem1.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem5.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem9.url}}" alt="{{image.altText}}"></th>
+        </tr>
+        <tr>
+          <th><img class="img-fluid" src="{{image.imagem2.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem6.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{image.imagem10.url}}" alt="{{image.altText}}"></th>
+        </tr>
+        <tr>
+          <th><img class="img-fluid" src="{{image.imagem3.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem7.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem11.url}}" alt="{{image.altText}}"></th>
+        </tr>
+        <tr>
+          <th><img class="img-fluid" src="{{image.imagem4.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem8.url}}" alt="{{image.altText}}"></th>
+          <th><img class="img-fluid" src="{{image.imagem12.url}}" alt="{{image.altText}}"></th>
+        </tr>
+      </table>
+
+
+      <div class="row">
+        <p class="paragrafo">{{image.description}}</p>
+      </div>
+
+
+    </div>
+  </div>
+
+</main>
+
+
+
+
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+
+{% endblock %}

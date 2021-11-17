@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Logar</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="jumbotron">
+
+      <h2>Por favor Logar: </h2>
+      <h6>Deve ser usuário cadastrado, por favor checar com administrador caso encontre problemas.</h6>
+      {% if form.errors %}
+          <p>Usuário e senha não correspondem. Tente novamente!</p>
+      {% endif %}
+
+      <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{form.as_p}}
+
+
+          <input type="submit" class='btn btn-primary' value="Login" />
+          <input type="hidden" name="next" value="{{ next }}" />
+      </form>
+    </div>
+  </body>
+</html>

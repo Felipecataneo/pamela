@@ -1,0 +1,65 @@
+{% extends 'imagesmain/index.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<main>
+
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+
+        <h1 class="fw-light">{{category.title}}</h1>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+        {% if images|length > 0 %}
+        {% for image in images %}
+        <div class="col">
+          <div class="card shadow-sm">
+
+            <img src="{{image.imagem1.url}}" >
+
+            <div class="card-body">
+              <p class="card-text">{{image.shortDescription}} . . . <a href="{% url 'image-detail' slug1=category.slug slug2=image.slug %}">veja mais</a></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{% url 'image-detail' slug1=category.slug slug2=image.slug %}"><button type="button" class="btn btn-sm btn-outline-secondary">Detalhes da imagem</button></a>
+                </div>
+                <small class="text-muted">{{image.date_created|date}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h2>Nenhuma foto carregada para esse paciente</h2>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted py-5">
+  <div class="container">
+    <p>Template adaptado do bootstrap por Felipe <a href="https://wwww.pamelaebbing.com.br">Pamela Ebbing Website</a>.</p>
+  </div>
+</footer>
+
+
+    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+
+
+{% endblock %}
